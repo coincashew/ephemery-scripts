@@ -266,12 +266,18 @@ clear_consensus_datadir() {
         "${rm_cmd[@]}"
         log "Deleted contents of $cl_datadir data directory for $cl_client consensus client"
       fi
-
       # Clear slashing_protection.sqlite3
-      if [ -f "$vc_datadir/validators/slashing_protection.sqlite3" ]; then
-        rm_cmd=("rm" "-rf" "$cl_datadir/validators/slashing_protection.sqlite3")
+      if [ -f "$cl_datadir/validators/slashing_protection.sqlite3" ]; then
+        rm_cmd=("rm" "-rf" "$cl_datadir/validators/slashing_protection.*")
         "${rm_cmd[@]}"
-        log "Deleted $cl_datadir/validators/slashing_protection.sqlite3 for $cl_client consensus client"
+        log "Deleted $cl_datadir/validators/slashing_protection.* for $cl_client consensus client"
+      fi
+
+      # Standalone Nimbus VC configuration
+      if [ -f "$vc_datadir/validators/slashing_protection.sqlite3" ]; then
+        rm_cmd=("rm" "-rf" "$vc_datadir/validators/slashing_protection.*")
+        "${rm_cmd[@]}"
+        log "Deleted $vc_datadir/validators/slashing_protection.* for $vc_client consensus client"
       fi
       ;;
 
@@ -321,6 +327,12 @@ clear_validator_datadir() {
         rm_cmd=("rm" "-rf" "$vc_datadir/slashprotection/slashprotection.sqlite")
         "${rm_cmd[@]}"
         log "Deleted $vc_datadir/slashprotection/slashprotection.sqlite for $vc_client validator client"
+      fi
+      # Standalone Teku VC Configuration
+      if [ -d "$vc_datadir/validator/slashprotection" ]; then
+        rm_cmd=("rm" "-rf" "$vc_datadir/validator/slashprotection")
+        "${rm_cmd[@]}"
+        log "Deleted $vc_datadir/slashprotection for $vc_client validator client"
       fi
       ;;
 
