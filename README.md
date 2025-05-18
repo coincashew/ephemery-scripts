@@ -16,6 +16,9 @@ git clone https://github.com/coincashew/ephemery-scripts
 # nimbus-nethermind Ephemery setup
 cp .env_nimbus-nethermind .env
 
+# lighthouse-reth Ephemery setup
+cp .env_lighthouse-reth .env
+
 # teku-besu Ephemery setup
 cp .env_teku-besu .env
 
