@@ -28,7 +28,7 @@ cat .env
 
 ### Step 3: Setup crontab to run retention.sh every 5 mins
 ```
-echo "*/5 * * * * $HOME/git/ephemery-scripts/retention.sh" | crontab -
+echo "*/5 * * * * $HOME/git/ephemery-scripts/retention.sh $HOME/git/ephemery-scripts/.env" | crontab -
 ```
 
 ## Retention script
