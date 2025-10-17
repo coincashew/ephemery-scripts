@@ -22,6 +22,9 @@ cp .env_lighthouse-reth .env
 # teku-besu Ephemery setup
 cp .env_teku-besu .env
 
+# lodestar-besu Ephemery setup
+cp .env_lodestar-besu .env
+
 # Review contents
 cat .env
 ```
