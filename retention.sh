@@ -345,10 +345,10 @@ clear_validator_datadir() {
       ;;
 
     "lighthouse")
-      if [ -f "$vc_datadir/keys/slashing_protection.sqlite" ]; then
-        rm_cmd=("rm" "-rf" "$vc_datadir/keys/slashing_protection.sqlite")
+      if [ -f "$vc_datadir/validators/slashing_protection.sqlite" ]; then
+        rm_cmd=("rm" "-rf" "$vc_datadir/validators/slashing_protection.sqlite")
         "${rm_cmd[@]}"
-        log "Deleted $vc_datadir/keys/slashing_protection.sqlite for $vc_client validator client"
+        log "Deleted $vc_datadir/validators/slashing_protection.sqlite for $vc_client validator client"
       fi
       ;;
 
