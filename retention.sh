@@ -236,10 +236,10 @@ clear_consensus_datadir() {
       fi
 
       # Clear slashing_protection.sqlite
-      if [ -f "$cl_datadir/keys/slashing_protection.sqlite" ]; then
-        rm_cmd=("rm" "-rf" "$cl_datadir/keys/slashing_protection.sqlite")
+      if [ -f "$cl_datadir/validators/slashing_protection.sqlite" ]; then
+        rm_cmd=("rm" "-rf" "$cl_datadir/validators/slashing_protection.sqlite")
         "${rm_cmd[@]}"
-        log "Deleted $cl_datadir/keys/slashing_protection.sqlite for $cl_client consensus client"
+        log "Deleted $cl_datadir/validators/slashing_protection.sqlite for $cl_client consensus client"
       fi
       ;;
 
@@ -290,7 +290,7 @@ clear_consensus_datadir() {
       fi
 
       # Clear validator.db
-      if [ -f "$vc_datadir/prysm-wallet-v2/direct/validator.db" ]; then
+      if [ -f "$cl_datadir/prysm-wallet-v2/direct/validator.db" ]; then
         rm_cmd=("rm" "-rf" "$cl_datadir/prysm-wallet-v2/direct/validator.db")
         "${rm_cmd[@]}"
         log "Deleted $cl_datadir/prysm-wallet-v2/direct/validator.db for $cl_client consensus client"
@@ -332,7 +332,7 @@ clear_validator_datadir() {
       if [ -d "$vc_datadir/validator/slashprotection" ]; then
         rm_cmd=("rm" "-rf" "$vc_datadir/validator/slashprotection")
         "${rm_cmd[@]}"
-        log "Deleted $vc_datadir/slashprotection for $vc_client validator client"
+        log "Deleted $vc_datadir/validator/slashprotection for $vc_client validator client"
       fi
       ;;
 
